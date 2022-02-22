@@ -5,7 +5,7 @@ import beforeLogo from "../data/beforeLogo.png";
 
 const NavBar = () => {
   return (
-    <HStack className="flex flex-wrap justify-center p-4">
+    <HStack className="flex flex-wrap justify-center p-4 ">
       <Box className="flex justify-center">
         <img src={bestLogo} className="rounded w-40" alt="bestLog" />
         <img src={beforeLogo} className="rounded w-40" alt="beforeLogo" />
