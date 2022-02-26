@@ -2,6 +2,8 @@ import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import { foodCategoryReducer } from "../reducers/foodCategoryReducer";
 import { ReduxStore } from "../../typings";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 declare global {
   interface Window {
@@ -19,14 +21,25 @@ export const initialState: ReduxStore = {
   },
 };
 
+// LOCAL STORAGE
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
 //REDUCER
 const reducer = combineReducers({
   food: foodCategoryReducer,
 });
 
+//PERSIST REDUX STORE
+const persistAllReducers = persistReducer(persistConfig, reducer);
+
 //STORE
 export const store = createStore(
-  reducer,
+  persistAllReducers,
   initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
+
+export const persistor = persistStore(store);

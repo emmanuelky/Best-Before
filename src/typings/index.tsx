@@ -9,4 +9,5 @@ export interface FoodItem {
   id: string;
   name: string;
   expires: Date;
+  category: string;
 }
