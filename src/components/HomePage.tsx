@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Container, HStack, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, HStack } from "@chakra-ui/react";
 import BBTimer from "../data/BBTimerGif.gif";
 import FoodCategory from "./FoodCategory";
 
