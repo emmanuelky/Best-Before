@@ -1,27 +1,35 @@
 import React from "react";
-import { Box, Button, Container, HStack } from "@chakra-ui/react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import BBTimer from "../data/BBTimerGif.gif";
+import AddFoodExpiringDateDrawer from "./AddFoodExpiringDateDrawer";
 import FoodCategory from "./FoodCategory";
+import Footer from "./Footer";
 
 const HomePage = () => {
   return (
-    <Container className="w-full h-full">
-      <Box className="p-5 text-4xl text-white text-center">
-        Food Expiring Date Tracker
-      </Box>
-      <HStack className="flex justify-around">
-        <Box className=" m-4 w-full">
-          <img src={BBTimer} className="rounded-lg" alt="BBTimer" />
-        </Box>
-        <Box className="m-4">
-          <Button className=""> ENTER EXPIRING DATE</Button>
-        </Box>
-      </HStack>
-
-      <div>
-        <FoodCategory />
-      </div>
-    </Container>
+    <div className="w-full h-full">
+      <Container fluid>
+        <h2 className="text-4xl text-orange-700 text-center">
+          Track Your Food Expiring Date
+        </h2>
+        <Row className="flex justify-evenly align-items-center">
+          <Col md={4} className=" ">
+            <FoodCategory />
+          </Col>
+          <Col md={4} className=" ">
+            <img src={BBTimer} className="rounded-lg " alt="BBTimer" />
+          </Col>
+          <Col md={4} className=" ">
+            <AddFoodExpiringDateDrawer />{" "}
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12} className=" ">
+            <Footer />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 export default HomePage;
