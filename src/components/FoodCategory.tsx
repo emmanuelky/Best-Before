@@ -1,33 +1,30 @@
 import { Badge, HStack, VStack } from "@chakra-ui/layout";
-import { Box, Button, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react";
 
 const FoodCategory = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <div className="w-full h-full p-4 mt-5">
+    <div>
       <div>
-        <h1 className="text-center text-2xl shadow-2xl rounded-lg text-fuchsia-700 bg-amber-50 p-2">
+        <h1 className="text-center text-2xl shadow-2xl rounded-lg text-white bg-orange-500 p-2">
           Food Category
         </h1>
       </div>
-      <div className="flex flex-wrap justify-between my-2">
-        <Button>
-          <Text fontSize="xl" fontWeight="bold">
-            Fruits and Vegetables
-            <Badge ml="1" fontSize="0.8em" colorScheme="green">
-              23
-            </Badge>
-          </Text>
-        </Button>
-        <Button>
-          <Text fontSize="xl" fontWeight="bold">
-            Meats and Proteins
-            <Badge ml="1" fontSize="0.8em" colorScheme="green">
-              5
-            </Badge>
-          </Text>
-        </Button>
-        <Button>
+      <VStack className="flex flex-wrap flex-start justify-between my-2">
+        <Button onClick={onOpen}>
           <Text fontSize="xl" fontWeight="bold">
             Dairy
             <Badge ml="1" fontSize="0.8em" colorScheme="green">
@@ -35,7 +32,7 @@ const FoodCategory = () => {
             </Badge>
           </Text>
         </Button>
-        <Button>
+        <Button onClick={onOpen}>
           <Text fontSize="xl" fontWeight="bold">
             Grains
             <Badge ml="1" fontSize="0.8em" colorScheme="green">
@@ -43,7 +40,41 @@ const FoodCategory = () => {
             </Badge>
           </Text>
         </Button>
-      </div>
+        <Button onClick={onOpen}>
+          <Text fontSize="xl" fontWeight="bold">
+            Fruits and Vegetables
+            <Badge ml="1" fontSize="0.8em" colorScheme="green">
+              23
+            </Badge>
+          </Text>
+        </Button>
+        <Button onClick={onOpen}>
+          <Text fontSize="xl" fontWeight="bold">
+            Meats and Proteins
+            <Badge ml="1" fontSize="0.8em" colorScheme="green">
+              5
+            </Badge>
+          </Text>
+        </Button>
+      </VStack>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <h4>item</h4>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </div>
   );
 };
