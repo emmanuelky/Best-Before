@@ -10,17 +10,18 @@ import {
   Input,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useRef } from "react";
+import { BsCalendar2Date } from "react-icons/bs";
 
 const AddFoodExpiringDateDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <div>
+    <div className="w-full h-full">
       <Button colorScheme="teal" onClick={onOpen}>
         Enter Expiring Date
+        <BsCalendar2Date className="mx-2" />
       </Button>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
