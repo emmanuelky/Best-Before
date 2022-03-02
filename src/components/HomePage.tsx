@@ -12,15 +12,16 @@ const HomePage = () => {
         <h2 className="text-4xl text-orange-700 text-center">
           Track Your Food Expiring Date
         </h2>
-        <Row className="flex justify-evenly align-items-center">
+        <Row className="flex flex-wrap justify-evenly align-items-center p-4">
           <Col md={4} className=" ">
-            <FoodCategory />
+            <AddFoodExpiringDateDrawer />
           </Col>
           <Col md={4} className=" ">
             <img src={BBTimer} className="rounded-lg " alt="BBTimer" />
           </Col>
-          <Col md={4} className=" ">
-            <AddFoodExpiringDateDrawer />{" "}
+
+          <Col md={4} className="p-4 mb-4">
+            <FoodCategory />
           </Col>
         </Row>
         <Row>
